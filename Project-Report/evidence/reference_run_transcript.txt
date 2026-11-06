@@ -1,0 +1,215 @@
+      5.1s  Host [localhost]: Port [3306]: Database name [retail_dw]: User name [root]: Password: Path of the online file [C:\dev\Retail-DWH\Data\online_sales_stream.csv]: Path of Online Retail.xlsx [C:\dev\Retail-DWH\Data\raw\Online Retail.xlsx]: Creating the working tables and the warehouse...
+      6.3s  Reading and cleaning the transactional file...
+     98.0s  Transactions before cleaning: 541,909
+     98.0s  Transactions after cleaning: 397,884
+     98.0s  Failed each test (a transaction can fail several): cancellation 9,288, quantity not positive 10,624, price not positive 2,517, customer missing 135,080
+     98.1s  Shopping carts: 18,532
+    121.1s  Customer Master Data: 4,338 tuples, 9 partitions
+    121.1s  Product Master Data: 3,665 tuples, 8 partitions
+    121.1s  Online file: 278,740 transactions in C:\dev\Retail-DWH\Data\online_sales_stream.csv
+    121.1s  Periodic staging table: 119,144 transactions in 48 groups, smallest 2,482, largest 2,483
+    121.7s  Peak time: 80 transactions per second
+    121.7s  Non-peak time: 10 transactions per second
+    121.7s  Stream arrival mode: peak
+    121.7s  One simulated hour: 60 seconds
+    121.7s  Stream buffer limit: 1,000 transactions
+    121.7s  Master Data R: customer 9 partitions, product 8 partitions
+    121.7s  Periodic groups: 48, smallest 2,482, largest 2,483
+    121.7s  Live load: cache (bonus: Live results wait in live_cache for a slow period)
+    121.7s  Starting mode: both
+    121.7s  Threads: OnlineThread, MeshJoinThread, PeriodicThread
+    121.7s  Type a command, or help for the list.
+    122.0s  >>> status
+    122.1s  Mode: both | Speed: peak (80 tps) | Simulated hour: 0 | Groups released: 0/48
+    122.1s  Stream buffer: 4/1000 (online 4, periodic 0, shed 0)
+    122.1s  Hash table H: 0 transactions
+    122.1s  Queue: 0 chunks
+    122.1s  Disk buffer: customer partition 0/9, product partition 0/8
+    122.1s  Shed disk: 0 transactions
+    122.1s  Live cache: 0 | Periodic results held for the tick: 0
+    122.1s  Fact: 0
+    422.5s  >>> status
+    422.5s  Mode: both | Speed: peak (80 tps) | Simulated hour: 5 | Groups released: 6/48
+    422.5s  Stream buffer: 900/1000 (online 16, periodic 884, shed 0)
+    422.5s  Hash table H: 132 transactions
+    422.5s  Queue: 8 chunks
+    422.5s  Disk buffer: customer partition 8/9, product partition 2/8
+    422.5s  Shed disk: 7943 transactions
+    422.5s  Live cache: 23808 | Periodic results held for the tick: 900
+    422.5s  Fact: 3572
+    723.0s  >>> status
+    723.0s  Mode: both | Speed: peak (80 tps) | Simulated hour: 10 | Groups released: 11/48
+    723.0s  Stream buffer: 968/1000 (online 68, periodic 900, shed 0)
+    723.0s  Hash table H: 132 transactions
+    723.0s  Queue: 8 chunks
+    723.0s  Disk buffer: customer partition 2/9, product partition 6/8
+    723.0s  Shed disk: 15932 transactions
+    723.0s  Live cache: 47804 | Periodic results held for the tick: 888
+    723.0s  Fact: 8008
+   1023.2s  >>> status
+   1023.2s  Mode: both | Speed: peak (80 tps) | Simulated hour: 15 | Groups released: 16/48
+   1023.2s  Stream buffer: 972/1000 (online 96, periodic 876, shed 0)
+   1023.2s  Hash table H: 136 transactions
+   1023.2s  Queue: 8 chunks
+   1023.2s  Disk buffer: customer partition 8/9, product partition 4/8
+   1023.2s  Shed disk: 25476 transactions
+   1023.2s  Live cache: 70992 | Periodic results held for the tick: 896
+   1023.2s  Fact: 12472
+   1323.5s  >>> status
+   1323.5s  Mode: both | Speed: peak (80 tps) | Simulated hour: 20 | Groups released: 21/48
+   1323.5s  Stream buffer: 4/1000 (online 4, periodic 0, shed 0)
+   1323.5s  Hash table H: 1084 transactions
+   1323.5s  Queue: 8 chunks
+   1323.5s  Disk buffer: customer partition 1/9, product partition 2/8
+   1323.5s  Shed disk: 33454 transactions
+   1323.5s  Live cache: 95044 | Periodic results held for the tick: 0
+   1323.5s  Fact: 17784
+   1623.7s  >>> status
+   1623.7s  Mode: both | Speed: peak (80 tps) | Simulated hour: 25 | Groups released: 26/48
+   1623.7s  Stream buffer: 20/1000 (online 16, periodic 4, shed 0)
+   1623.7s  Hash table H: 1100 transactions
+   1623.7s  Queue: 8 chunks
+   1623.7s  Disk buffer: customer partition 9/9, product partition 7/8
+   1623.7s  Shed disk: 41404 transactions
+   1623.7s  Live cache: 119028 | Periodic results held for the tick: 0
+   1623.7s  Fact: 22244
+   1922.8s  >>> non-peak
+   1922.8s  >>> status
+   1922.8s  Speed is now non-peak (10 tps).
+   1922.8s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 30 | Groups released: 31/48
+   1922.8s  Stream buffer: 952/1000 (online 68, periodic 884, shed 0)
+   1922.8s  Hash table H: 132 transactions
+   1922.8s  Queue: 8 chunks
+   1922.8s  Disk buffer: customer partition 9/9, product partition 5/8
+   1922.8s  Shed disk: 47756 transactions
+   1922.8s  Live cache: 142992 | Periodic results held for the tick: 900
+   1922.8s  Fact: 25812
+   1923.8s  >>> status
+   1923.8s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 30 | Groups released: 31/48
+   1923.8s  Stream buffer: 962/1000 (online 78, periodic 884, shed 0)
+   1923.8s  Hash table H: 132 transactions
+   1923.8s  Queue: 8 chunks
+   1923.8s  Disk buffer: customer partition 9/9, product partition 5/8
+   1923.8s  Shed disk: 49354 transactions
+   1923.8s  Live cache: 142992 | Periodic results held for the tick: 0
+   1923.8s  Fact: 26712
+   2224.7s  >>> status
+   2224.7s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 35 | Groups released: 36/48
+   2224.7s  Stream buffer: 498/1000 (online 1, periodic 497, shed 0)
+   2224.7s  Hash table H: 1827 transactions
+   2224.7s  Queue: 8 chunks
+   2224.7s  Disk buffer: customer partition 8/9, product partition 2/8
+   2224.7s  Shed disk: 0 transactions
+   2224.7s  Live cache: 0 | Periodic results held for the tick: 0
+   2224.7s  Fact: 233047
+   2524.8s  >>> status
+   2524.8s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 40 | Groups released: 41/48
+   2524.8s  Stream buffer: 1/1000 (online 1, periodic 0, shed 0)
+   2524.8s  Hash table H: 1600 transactions
+   2524.8s  Queue: 8 chunks
+   2524.8s  Disk buffer: customer partition 9/9, product partition 4/8
+   2524.8s  Shed disk: 0 transactions
+   2524.8s  Live cache: 1 | Periodic results held for the tick: 899
+   2524.8s  Fact: 248468
+   2825.4s  >>> status
+   2825.4s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 45 | Groups released: 46/48
+   2825.4s  Stream buffer: 1/1000 (online 1, periodic 0, shed 0)
+   2825.4s  Hash table H: 608 transactions
+   2825.4s  Queue: 8 chunks
+   2825.4s  Disk buffer: customer partition 9/9, product partition 4/8
+   2825.4s  Shed disk: 0 transactions
+   2825.4s  Live cache: 2 | Periodic results held for the tick: 1890
+   2825.4s  Fact: 263884
+   3002.6s  >>> peak
+   3002.6s  >>> status
+   3002.6s  Speed is now peak (80 tps).
+   3002.6s  Mode: both | Speed: peak (80 tps) | Simulated hour: 48 | Groups released: 48/48
+   3002.6s  Stream buffer: 4/1000 (online 4, periodic 0, shed 0)
+   3002.6s  Hash table H: 17 transactions
+   3002.6s  Queue: 8 chunks
+   3002.6s  Disk buffer: customer partition 7/9, product partition 3/8
+   3002.6s  Shed disk: 0 transactions
+   3002.6s  Live cache: 2 | Periodic results held for the tick: 2482
+   3002.6s  Fact: 270616
+   3126.1s  >>> status
+   3126.1s  Mode: both | Speed: peak (80 tps) | Simulated hour: 50 | Groups released: 48/48
+   3126.1s  Stream buffer: 8/1000 (online 8, periodic 0, shed 0)
+   3126.1s  Hash table H: 136 transactions
+   3126.1s  Queue: 8 chunks
+   3126.1s  Disk buffer: customer partition 4/9, product partition 2/8
+   3126.1s  Shed disk: 0 transactions
+   3126.1s  Live cache: 9755 | Periodic results held for the tick: 0
+   3126.1s  Fact: 273098
+   3426.9s  >>> status
+   3426.9s  Mode: both | Speed: peak (80 tps) | Simulated hour: 55 | Groups released: 48/48
+   3426.9s  Stream buffer: 8/1000 (online 8, periodic 0, shed 0)
+   3426.9s  Hash table H: 128 transactions
+   3426.9s  Queue: 8 chunks
+   3426.9s  Disk buffer: customer partition 7/9, product partition 2/8
+   3426.9s  Shed disk: 0 transactions
+   3426.9s  Live cache: 33827 | Periodic results held for the tick: 0
+   3426.9s  Fact: 273098
+   3728.0s  >>> status
+   3728.0s  Mode: both | Speed: peak (80 tps) | Simulated hour: 60 | Groups released: 48/48
+   3728.0s  Stream buffer: 0/1000 (online 0, periodic 0, shed 0)
+   3728.0s  Hash table H: 128 transactions
+   3728.0s  Queue: 8 chunks
+   3728.0s  Disk buffer: customer partition 6/9, product partition 5/8
+   3728.0s  Shed disk: 0 transactions
+   3728.0s  Live cache: 57907 | Periodic results held for the tick: 0
+   3728.0s  Fact: 273098
+   4028.9s  >>> status
+   4028.9s  Mode: both | Speed: peak (80 tps) | Simulated hour: 65 | Groups released: 48/48
+   4028.9s  Stream buffer: 12/1000 (online 12, periodic 0, shed 0)
+   4028.9s  Hash table H: 128 transactions
+   4028.9s  Queue: 8 chunks
+   4028.9s  Disk buffer: customer partition 3/9, product partition 3/8
+   4028.9s  Shed disk: 0 transactions
+   4028.9s  Live cache: 81987 | Periodic results held for the tick: 0
+   4028.9s  Fact: 273098
+   4329.6s  >>> status
+   4329.6s  Mode: both | Speed: peak (80 tps) | Simulated hour: 70 | Groups released: 48/48
+   4329.6s  Stream buffer: 12/1000 (online 12, periodic 0, shed 0)
+   4329.6s  Hash table H: 128 transactions
+   4329.6s  Queue: 8 chunks
+   4329.6s  Disk buffer: customer partition 5/9, product partition 5/8
+   4329.6s  Shed disk: 0 transactions
+   4329.6s  Live cache: 106043 | Periodic results held for the tick: 0
+   4329.6s  Fact: 273098
+   4563.9s  Both streams have finished. Shed or cached rows are still waiting: type non-peak to process them.
+   4565.0s  >>> status
+   4565.0s  >>> non-peak
+   4565.0s  Mode: both | Speed: peak (80 tps) | Simulated hour: 74 | Groups released: 48/48
+   4565.0s  Stream buffer: 0/1000 (online 0, periodic 0, shed 0)
+   4565.0s  Hash table H: 0 transactions
+   4565.0s  Queue: 0 chunks
+   4565.0s  Disk buffer: customer partition 5/9, product partition 2/8
+   4565.0s  Shed disk: 0 transactions
+   4565.0s  Live cache: 124786 | Periodic results held for the tick: 0
+   4565.0s  Fact: 273098
+   4565.0s  Speed is now non-peak (10 tps).
+   4602.2s  ALL DATA LOADED: 397,884 fact rows, 0 rejected. The warehouse is ready for the queries. Type quit to close the program.
+   4605.1s  >>> status
+   4605.1s  Mode: both | Speed: non-peak (10 tps) | Simulated hour: 74 | Groups released: 48/48
+   4605.1s  Stream buffer: 0/1000 (online 0, periodic 0, shed 0)
+   4605.1s  Hash table H: 0 transactions
+   4605.1s  Queue: 0 chunks
+   4605.1s  Disk buffer: customer partition 5/9, product partition 2/8
+   4605.1s  Shed disk: 0 transactions
+   4605.1s  Live cache: 0 | Periodic results held for the tick: 0
+   4605.1s  Fact: 397884
+   4607.1s  >>> quit
+   4607.1s  Stopping the readers and finishing what is in memory...
+   4608.9s  Row accounting:
+   4608.9s    Cleaned transactions:           397,884
+   4608.9s    In the fact table:              397,884
+   4608.9s    In the Live cache:                    0
+   4608.9s    On the shed disk:                     0
+   4608.9s    Waiting in the staging table:         0
+   4608.9s    Lost from memory, recoverable:        0
+   4608.9s    Online rows not yet read:             0
+   4608.9s    Rejected:                             0
+   4608.9s    Balanced: every transaction is accounted for.
+   4608.9s    Fact quantity 5,167,812, revenue 8,911,407.904
+   4608.9s    Complete: every transaction has been through the whole ETL.
+   4608.9s  Closed.

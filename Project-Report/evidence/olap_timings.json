@@ -1,0 +1,134 @@
+{
+  "database": "retail_dw",
+  "recorded_at": "2026-11-05T17:28:14+00:00",
+  "limit_seconds": 120,
+  "slowest_seconds": 11.919,
+  "queries": [
+    {
+      "query": "Q1",
+      "seconds": 11.919,
+      "rows": 106,
+      "error": null
+    },
+    {
+      "query": "Q2",
+      "seconds": 1.612,
+      "rows": 42,
+      "error": null
+    },
+    {
+      "query": "Q3",
+      "seconds": 1.899,
+      "rows": 100,
+      "error": null
+    },
+    {
+      "query": "Q4",
+      "seconds": 1.611,
+      "rows": 14,
+      "error": null
+    },
+    {
+      "query": "Q5",
+      "seconds": 1.448,
+      "rows": 50,
+      "error": null
+    },
+    {
+      "query": "Q6",
+      "seconds": 1.088,
+      "rows": 36,
+      "error": null
+    },
+    {
+      "query": "Q7",
+      "seconds": 1.035,
+      "rows": 10,
+      "error": null
+    },
+    {
+      "query": "Q8",
+      "seconds": 1.385,
+      "rows": 30,
+      "error": null
+    },
+    {
+      "query": "Q9",
+      "seconds": 2.628,
+      "rows": 120,
+      "error": null
+    },
+    {
+      "query": "Q10",
+      "seconds": 1.551,
+      "rows": 7,
+      "error": null
+    },
+    {
+      "query": "Q11",
+      "seconds": 2.627,
+      "rows": 120,
+      "error": null
+    },
+    {
+      "query": "Q12",
+      "seconds": 1.358,
+      "rows": 20,
+      "error": null
+    },
+    {
+      "query": "Q13",
+      "seconds": 5.13,
+      "rows": 15002,
+      "error": null
+    },
+    {
+      "query": "Q14",
+      "seconds": 4.015,
+      "rows": 3665,
+      "error": null
+    },
+    {
+      "query": "Q15",
+      "seconds": 4.731,
+      "rows": 325,
+      "error": null
+    },
+    {
+      "query": "Q16",
+      "seconds": 8.715,
+      "rows": 5,
+      "error": null
+    },
+    {
+      "query": "Q17",
+      "seconds": 6.772,
+      "rows": 20807,
+      "error": null
+    },
+    {
+      "query": "Q18",
+      "seconds": 3.97,
+      "rows": 3596,
+      "error": null
+    },
+    {
+      "query": "Q19",
+      "seconds": 2.579,
+      "rows": 22885,
+      "error": null
+    },
+    {
+      "query": "Q20_view",
+      "seconds": 0.023,
+      "rows": 0,
+      "error": null
+    },
+    {
+      "query": "Q20",
+      "seconds": 1.356,
+      "rows": 25,
+      "error": null
+    }
+  ]
+}

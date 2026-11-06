@@ -1,0 +1,49 @@
+{
+ "recorded_at": "2026-11-05T22:25:08",
+ "layers": [
+  {
+   "name": "Unit",
+   "path": "tests/unit",
+   "exit_code": 0,
+   "summary": "762 passed in 23.50s",
+   "counts": {
+    "passed": 762
+   },
+   "seconds": 25
+  },
+  {
+   "name": "Integration (real MySQL)",
+   "path": "tests/integration",
+   "exit_code": 0,
+   "summary": "363 passed, 1 skipped in 290.25s (0:04:50)",
+   "counts": {
+    "passed": 363,
+    "skipped": 1
+   },
+   "seconds": 292
+  },
+  {
+   "name": "OLAP against independent answers",
+   "path": "tests/oracle",
+   "exit_code": 0,
+   "summary": "114 passed in 140.33s (0:02:20)",
+   "counts": {
+    "passed": 114
+   },
+   "seconds": 144
+  },
+  {
+   "name": "End to end and failure (real program)",
+   "path": "tests/e2e",
+   "exit_code": 0,
+   "summary": "17 passed in 669.66s (0:11:09)",
+   "counts": {
+    "passed": 17
+   },
+   "seconds": 670
+  }
+ ],
+ "passed": 1256,
+ "failed": 0,
+ "skipped": 1
+}
