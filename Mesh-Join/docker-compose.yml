@@ -1,0 +1,26 @@
+# Throwaway MySQL 8.0 for tests and demos. Data lives in tmpfs, so it is gone when
+# the container stops. Bound to loopback only: this server is not for the network.
+#
+#   export MYSQL_ROOT_PASSWORD=...      (or put it in a .env file, see .env.example)
+#   docker compose up -d --wait
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in the environment or in a .env file}
+    ports:
+      - "127.0.0.1:3307:3306"
+    tmpfs:
+      - /var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_0900_ai_ci
+    healthcheck:
+      # Over TCP on purpose: during first-time setup the image runs a temporary
+      # server on the socket only, and a socket ping would report healthy too early.
+      # MYSQL_PWD keeps the password off the process list inside the container.
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$$MYSQL_ROOT_PASSWORD\" mysqladmin ping --protocol=tcp -h 127.0.0.1 -u root --silent"]
+      interval: 3s
+      timeout: 3s
+      retries: 40
+      start_period: 10s

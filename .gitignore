@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets and local configuration: never commit
+.env
+*.env
+!.env.example
+
+# Runtime output
+Mesh-Join/logs/
+*.log
+
+# Raw dataset: downloaded from UCI, see ReadMe/README.md
+Data/raw/
+
+# Assignment PDF is course material, and the built zip is a release artifact
+DWH_Project.pdf
+dist/
