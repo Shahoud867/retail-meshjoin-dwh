@@ -2,8 +2,7 @@
 -- create_dw.sql
 -- Retail chain Data Warehouse: star schema plus the ETL working tables.
 --
--- Course   : DS3003 & DS3004, Data Warehousing and Business Intelligence
--- Student  : Shahoud Shahid, 23i-2515, DS-A
+-- Author   : Shahoud Shahid
 -- Target   : MySQL 8.0, InnoDB, utf8mb4
 --
 -- How to run

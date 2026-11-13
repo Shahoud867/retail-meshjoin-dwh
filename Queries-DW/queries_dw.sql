@@ -1,10 +1,8 @@
 -- =============================================================================
 -- queries_dw.sql
--- OLAP analysis of the retail chain Data Warehouse: Questions 1 to 20 of PDF
--- section 10, in order.
+-- OLAP analysis of the retail chain Data Warehouse: 20 analytical queries.
 --
--- Course   : DS3003 & DS3004, Data Warehousing and Business Intelligence
--- Student  : Shahoud Shahid, 23i-2515, DS-A
+-- Author   : Shahoud Shahid
 -- Target   : MySQL 8.0. Every query is valid under ONLY_FULL_GROUP_BY.
 --
 -- How to run
