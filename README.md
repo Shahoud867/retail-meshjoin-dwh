@@ -74,43 +74,43 @@ The pipeline orchestrates three asynchronous worker threads communicating throug
 ```mermaid
 flowchart TD
     subgraph Ingestion ["1. Data Ingestion & Splitting"]
-        Raw["Online Retail.xlsx"] --> Prep["Data Preparation Pipeline<br/>(Cleaning, Deduplication, Rules)"]
-        Prep --> MasterCust[("customer_master_data<br/>(9 Partitions)")]
-        Prep --> MasterProd[("product_master_data<br/>(8 Partitions)")]
+        Raw["Online Retail.xlsx"] --> Prep["Data Preparation Pipeline<br/>Cleaning, Deduplication, Rules"]
+        Prep --> MasterCust[("customer_master_data<br/>9 Partitions")]
+        Prep --> MasterProd[("product_master_data<br/>8 Partitions")]
         Prep --> StreamCSV["online_sales_stream.csv"]
-        Prep --> StagingDB[("periodic_sales_data<br/>(48 Hourly Groups)")]
+        Prep --> StagingDB[("periodic_sales_data<br/>48 Hourly Groups")]
     end
 
     subgraph Workers ["2. Multi-Threaded ETL Engine"]
-        StreamCSV -->|Paced Stream| OnlineTh["OnlineThread<br/>(10 - 80 TPS)"]
-        StagingDB -->|Hourly Burst| PeriodicTh["PeriodicThread<br/>(Hour Clock Owner)"]
+        StreamCSV -->|Paced Stream| OnlineTh["OnlineThread<br/>10 - 80 TPS"]
+        StagingDB -->|Hourly Burst| PeriodicTh["PeriodicThread<br/>Hour Clock Owner"]
         
-        OnlineTh -->|Priority Lane 1| StreamBuf["Stream Buffer<br/>(Capacity: 1,000 Slots)"]
+        OnlineTh -->|Priority Lane 1| StreamBuf["Stream Buffer<br/>Capacity: 1,000 Slots"]
         PeriodicTh -->|Priority Lane 2| StreamBuf
         
-        PeriodicTh -.->|Buffer Congested at Peak| ShedDisk[("shed_table<br/>(Disk-to-Disk)")]
+        PeriodicTh -.->|Buffer Congested at Peak| ShedDisk[("shed_table<br/>Disk-to-Disk")]
         ShedDisk -.->|Low-Priority Drain at Non-Peak| StreamBuf
     end
 
     subgraph MeshEngine ["3. MESHJOIN Core Execution"]
-        StreamBuf -->|Chunks of W=500| HashTable["Hash Table H & Chunk Queue<br/>(Capacity: 4,500 Tuples)"]
-        MasterCust -->|Round-Robin Partition Load| CustBuf["Disk Buffer (Customer)"]
-        MasterProd -->|Round-Robin Partition Load| ProdBuf["Disk Buffer (Product)"]
+        StreamBuf -->|Chunks of W: 500| HashTable["Hash Table H & Chunk Queue<br/>Capacity: 4,500 Tuples"]
+        MasterCust -->|Round-Robin Partition Load| CustBuf["Disk Buffer: Customer"]
+        MasterProd -->|Round-Robin Partition Load| ProdBuf["Disk Buffer: Product"]
         
         CustBuf -->|Probe Hash Table| HashTable
         ProdBuf -->|Probe Hash Table| HashTable
         
-        HashTable -->|Enriched Chunks (Age = 9 Iterations)| Consolidate["Consolidate & Enrich<br/>(Store, Supplier, Time Keys)"]
+        HashTable -->|Enriched Chunks after 9 Iterations| Consolidate["Consolidate & Enrich<br/>Store, Supplier, Time Keys"]
     end
 
     subgraph Storage ["4. MySQL 8.0 Star Schema Warehouse"]
         Consolidate -->|Live Cache Mode| LiveCache[("live_cache Table")]
-        LiveCache -->|Non-Peak Batch Flush| FactSales[("fact_sales<br/>(397,884 Rows)")]
-        Consolidate -->|Direct Mode / Periodic Batch| FactSales
+        LiveCache -->|Non-Peak Batch Flush| FactSales[("fact_sales<br/>397,884 Rows")]
+        Consolidate -->|Direct Mode or Periodic Batch| FactSales
         
         FactSales --> View["STORE_QUARTERLY_SALES View"]
         FactSales --> BI["20 OLAP Queries"]
-        FactSales --> Dashboard["Real-Time Web Dashboard<br/>(Port 8765)"]
+        FactSales --> Dashboard["Real-Time Web Dashboard<br/>Port 8765"]
     end
 ```
 
