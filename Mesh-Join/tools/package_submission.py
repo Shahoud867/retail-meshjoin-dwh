@@ -29,12 +29,24 @@ REQUIRED = (
 )
 EXCLUDED_DIRS = {"__pycache__", ".pytest_cache", ".ruff_cache", "logs", "raw", ".venv", "dist"}
 EXCLUDED_NAMES = {".env"}
+# The report is submitted as one PDF. Its Word and LaTeX working files stay out of the zip.
+EXCLUDED_PATHS = {
+    "Project-Report/Project_Report.docx",
+    "Project-Report/Project_Report.tex",
+    "Project-Report/Project_Report_LaTeX.pdf",
+    "Project-Report/source/report_template.tex",
+    "Project-Report/source/build_latex.py",
+}
+EXCLUDED_PREFIXES = ("Project-Report/figures/",)
 EXCLUDED_SUFFIXES = {".pyc", ".log"}
 
 
 def included(path: Path) -> bool:
     relative = path.relative_to(PROJECT)
     if any(part in EXCLUDED_DIRS for part in relative.parts):
+        return False
+    posix = relative.as_posix()
+    if posix in EXCLUDED_PATHS or posix.startswith(EXCLUDED_PREFIXES):
         return False
     return path.name not in EXCLUDED_NAMES and path.suffix not in EXCLUDED_SUFFIXES
 
@@ -59,6 +71,7 @@ def main() -> int:
     assert top == set(FOLDERS), top
     for name in REQUIRED:
         assert f"{NAME}/{name}" in names, name
+    assert not any(n.endswith((".tex", ".docx")) or "/Project-Report/figures/" in n for n in names)
     assert not any("/raw/" in n or n.endswith((".env", ".pyc", ".log")) for n in names)
     print(f"Wrote {target}: {count} files, {target.stat().st_size / 1e6:.1f} MB")
     return 0
